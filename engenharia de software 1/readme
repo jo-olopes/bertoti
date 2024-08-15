@@ -2,3 +2,14 @@ Engenharia de software é mais que "apenas programar", principalmente em questã
 Engenheiros de software precisão se preocupar com as mudanças que ocorrerão com o tempo em seus códigos, e a eventual mudança desses códigos.
 Eles tem que se preocupar com a escala e eficiencia a longo prazo. 
 E fazer decisões complexas de alto risco, muitas vezes baseadas em informações não muito precisas.
+
+Programação é sim uma parte significante da engenharia de software, pois afinal, é apartir dela que novos softwares são gerados. Se considerado isso,
+fica mais claro a linha formada entre tarefas de programação(Desenvolver o software), e, tarefas de engenharia de software(Desenvolver, Atualizar, e manutenção).
+
+3 exemplos de trade-offs requisitos nao funcionais:
+Desempenho e segurança, onde caso escolha um sistema mais seguro, pode implementar autenticações mais rigorosas, mas isso pode acabar afetando o tempo de resposta do sistema.
+Usabilidade e funcionalidade, onde para a usabilidade ser mais acessivel para a maior quantidade de usuários possivel, as funcionalidades mais complexas tenham que ser cortadas ou mais escondidas.
+Custo e escalabilidade, um site super bem otimizado que atraia mais usuários, e o custo maior de manutenção do site por conta de sua complexidade.
+
+A arquitetura da netflix é extremamente complexa, oque por um lado é bom, por conta da velocidade e da otimização em vários dispositivos. 
+Por outro lado, é "ruim", por conta do preço de manutenção, que é extremamente alto porque são usados inumeros tipos de tecnologias diferentes.
