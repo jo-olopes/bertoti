@@ -1,12 +1,16 @@
 # Comentários Textos:
 
-### Texto 1 Comentário:
+### Texto 1:
+"We see three critical differences between programming and software engineering: time, scale, and the trade-offs at play. On a software engineering project, engineers need to be more concerned with the passage of time and the eventual need for change. In a software engineering organization, we need to be more concerned about scale and efficiency, both for the software we produce as well as for the organization that is producing it. Finally, as software engineers, we are asked to make more complex decisions with higher-stakes outcomes, often based on imprecise estimates of time and growth."
+### Comentário Texto 1:
 A engenharia de software vai além de "simplesmente programar", especialmente no que diz respeito a tempo, escala e trade-offs. 
 Os engenheiros de software precisam considerar as mudanças inevitáveis ao longo do tempo em seus códigos, bem como a necessidade de adaptações futuras.
 Além disso, devem se preocupar com a escalabilidade e eficiência a longo prazo. Esses profissionais também são responsáveis por tomar decisões complexas e de alto risco,
 muitas vezes com base em estimativas incertas e informações imprecisas.
 
-### Texto 2 Comentário:
+### Texto 2:
+Within Google, we sometimes say, “Software engineering is programming integrated over time.” Programming is certainly a significant part of software engineering: after all, programming is how you generate new software in the first place. If you accept this distinction, it also becomes clear that we might need to delineate between programming tasks (development) and software engineering tasks (development, modification, maintenance). The addition of time adds an important new dimension to programming. Cubes aren’t squares, distance isn’t velocity. Software engineering isn’t programming.
+### Comentário Texto 2:
 O texto aborda a distinção entre "programação" e "engenharia de software". Ele sugere que a programação é apenas uma parte do processo de engenharia de software. 
 Enquanto a programação envolve a criação de novos softwares, a engenharia de software inclui, além da programação, atividades como desenvolvimento, modificação e manutenção ao longo do tempo.
 A ideia principal é que, assim como cubos não são simplesmente quadrados e distância não é o mesmo que velocidade, a engenharia de software vai além da programação. 
