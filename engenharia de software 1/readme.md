@@ -42,4 +42,95 @@ ocultadas ou até eliminadas, afetando a riqueza de recursos disponíveis.
 Um site altamente otimizado pode atrair mais usuários, porém, o aumento na complexidade e na capacidade de suportar um grande volume de acessos
 resulta em custos maiores de manutenção e infraestrutura.
 
+# Atividade 4:
+### Classe Funcionário:
+```
+public class Funcionario {
+    protected String nome;
+    protected int cpf;
+    protected double salario;
 
+    public Funcionario(String nome, int cpf, double salario){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.salario = salario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public void exibirDados() {
+        System.out.println("Nome: " + nome + ", CPF: " + cpf + ", Salario: " + salario);
+    }
+}
+```
+### Classe Gerente:
+```
+public class Gerente extends Funcionario {
+    private int senha;
+
+    public Gerente(String nome, int cpf, double salario, int senha){
+        super(nome, cpf, salario);
+        this.senha = senha;
+    }
+
+    public int getSenha() {
+        return senha;
+    }
+
+    public void setSenha(int senha) {
+        this.senha = senha;
+    }
+
+    public boolean autentica(int senha) {
+        return this.senha == senha;
+    }
+
+    public void exibirDados() {
+        super.exibirDados();
+        System.out.println("Gerente autenticado: " + autentica(this.senha));
+    }
+}
+```
+### Classe Empresa:
+```
+public class Empresa {
+    public static void main(String[] args) {
+        Gerente gerente1 = new Gerente("Joao", 40, 8000.0, 1234);
+        Gerente gerente2 = new Gerente("Pedro", 45, 9000.0, 5678);
+
+        System.out.println("Dados do Gerente 1:");
+        gerente1.exibirDados();
+
+        System.out.println("\nDados do Gerente 2:");
+        gerente2.exibirDados();
+
+        System.out.println("\nTentando autenticar Gerente 1 com a senha correta:");
+        System.out.println(gerente1.autentica(1234));
+
+        System.out.println("\nTentando autenticar Gerente 2 com a senha errada:");
+        System.out.println(gerente2.autentica(9999)); 
+    }
+}
+```
