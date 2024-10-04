@@ -44,7 +44,7 @@ resulta em custos maiores de manutenção e infraestrutura.
 
 # Atividade 4:
 ### Diagrama:
-![Diagrama1]()
+![Diagrama1](Diagrama.pdf)
 
 ### Classe Funcionário:
 ```
