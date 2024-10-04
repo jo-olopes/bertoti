@@ -43,6 +43,9 @@ Um site altamente otimizado pode atrair mais usuários, porém, o aumento na com
 resulta em custos maiores de manutenção e infraestrutura.
 
 # Atividade 4:
+### Diagrama:
+![Diagrama1]()
+
 ### Classe Funcionário:
 ```
 public class Funcionario {
@@ -134,3 +137,4 @@ public class Empresa {
     }
 }
 ```
+
