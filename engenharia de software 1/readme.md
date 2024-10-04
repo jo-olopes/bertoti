@@ -44,7 +44,7 @@ resulta em custos maiores de manutenção e infraestrutura.
 
 # Atividade 4:
 ### Diagrama:
-![Diagrama1](https://github.com/jo-olopes/bertoti/issues/1#issue-2566373270)
+![Diagrama1]()
 
 ### Classe Funcionário:
 ```
