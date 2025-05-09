@@ -42,21 +42,23 @@ ocultadas ou até eliminadas, afetando a riqueza de recursos disponíveis.
 Um site altamente otimizado pode atrair mais usuários, porém, o aumento na complexidade e na capacidade de suportar um grande volume de acessos
 resulta em custos maiores de manutenção e infraestrutura.
 
-# Atividade 4:
-### Diagrama:
-![Diagrama1](Diagrama.pdf)
+# Atividade 5:
 
-### Classe Funcionário:
+
+### Classe Produto:
 ```
-public class Funcionario {
-    protected String nome;
-    protected int cpf;
-    protected double salario;
+package loja;
 
-    public Funcionario(String nome, int cpf, double salario){
+public class Produto {
+    
+    private String nome;
+    private String categoria;
+    private double preco;
+    
+    public Produto(String nome, String categoria, double preco) {
         this.nome = nome;
-        this.cpf = cpf;
-        this.salario = salario;
+        this.categoria = categoria;
+        this.preco = preco;
     }
 
     public String getNome() {
@@ -67,73 +69,110 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public int getCpf() {
-        return cpf;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public double getSalario() {
-        return salario;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public void exibirDados() {
-        System.out.println("Nome: " + nome + ", CPF: " + cpf + ", Salario: " + salario);
-    }
-}
-```
-### Classe Gerente:
-```
-public class Gerente extends Funcionario {
-    private int senha;
-
-    public Gerente(String nome, int cpf, double salario, int senha){
-        super(nome, cpf, salario);
-        this.senha = senha;
-    }
-
-    public int getSenha() {
-        return senha;
-    }
-
-    public void setSenha(int senha) {
-        this.senha = senha;
-    }
-
-    public boolean autentica(int senha) {
-        return this.senha == senha;
-    }
-
-    public void exibirDados() {
-        super.exibirDados();
-        System.out.println("Gerente autenticado: " + autentica(this.senha));
+    @Override
+    public String toString() {
+        return "Produto [nome=" + nome + ", categoria=" + categoria + ", preco=" + preco + "]";
     }
 }
 ```
-### Classe Empresa:
+### Classe Loja:
 ```
-public class Empresa {
-    public static void main(String[] args) {
-        Gerente gerente1 = new Gerente("Joao", 40, 8000.0, 1234);
-        Gerente gerente2 = new Gerente("Pedro", 45, 9000.0, 5678);
+package loja;
 
-        System.out.println("Dados do Gerente 1:");
-        gerente1.exibirDados();
+import java.util.List;
+import java.util.LinkedList;
 
-        System.out.println("\nDados do Gerente 2:");
-        gerente2.exibirDados();
+public class Loja {
+    
+    private List<Produto> produtos = new LinkedList<Produto>();
 
-        System.out.println("\nTentando autenticar Gerente 1 com a senha correta:");
-        System.out.println(gerente1.autentica(1234));
+    public void adicionarProduto(Produto produto) {
+        produtos.add(produto);
+    }
 
-        System.out.println("\nTentando autenticar Gerente 2 com a senha errada:");
-        System.out.println(gerente2.autentica(9999)); 
+    public Produto buscarProdutoPorNome(String nome) {
+        for (Produto produto : produtos) {
+            if (produto.getNome().equalsIgnoreCase(nome)) {
+                return produto;
+            }
+        }
+        return null;
+    }
+
+    public List<Produto> buscarProdutosPorCategoria(String categoria) {
+        List<Produto> encontrados = new LinkedList<Produto>();
+        for (Produto produto : produtos) {
+            if (produto.getCategoria().equalsIgnoreCase(categoria)) {
+                encontrados.add(produto);
+            }
+        }
+        return encontrados;
+    }
+
+    public List<Produto> buscarProdutosPorPreco(double preco) {
+        List<Produto> encontrados = new LinkedList<Produto>();
+        for (Produto produto : produtos) {
+            if (produto.getPreco() <= preco) {
+                encontrados.add(produto);
+            }
+        }
+        return encontrados;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+}
+```
+### Classe TesteLoja:
+```
+package loja;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+class TesteLoja {
+
+    @Test
+    void test() {
+
+        Loja loja = new Loja();
+        loja.adicionarProduto(new Produto("Camiseta", "Roupas", 29.90));
+        loja.adicionarProduto(new Produto("Calça Jeans", "Roupas", 79.90));
+        loja.adicionarProduto(new Produto("Tênis Esportivo", "Calçados", 120.00));
+
+        assertEquals(loja.getProdutos().size(), 3);
+
+        Produto produto = loja.buscarProdutoPorNome("Camiseta");
+        assertNotNull(produto);
+        assertEquals(produto.getPreco(), 29.90);
+
+
+        List<Produto> produtosRoupas = loja.buscarProdutosPorCategoria("Roupas");
+        assertEquals(produtosRoupas.size(), 2);
+        assertEquals(produtosRoupas.get(0).getCategoria(), "Roupas");
+
+        List<Produto> produtosBaratos = loja.buscarProdutosPorPreco(50.00);
+        assertEquals(produtosBaratos.size(), 2); // Deve retornar a Camiseta e a Calça Jeans
     }
 }
 ```
